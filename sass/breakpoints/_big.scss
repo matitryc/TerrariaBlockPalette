@@ -1,0 +1,37 @@
+@media (min-width: 1050px) {
+	.header {
+		&__title {
+			font-size: 7rem;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.header {
+		&__title {
+			font-size: 8rem;
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+	.header {
+		&__asset {
+			&--leaf-one {
+				font-size: 17rem;
+			}
+
+			&--leaf-two {
+				font-size: 20rem;
+			}
+
+			&--star-one {
+				font-size: 24rem;
+			}
+
+			&--star-two {
+				font-size: 26rem;
+			}
+		}
+	}
+}

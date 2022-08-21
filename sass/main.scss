@@ -1,0 +1,195 @@
+@use 'index.scss' as *;
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	height: 100vh;
+	font-family: 'Heebo', sans-serif;
+	background-color: $mainColor;
+	color: $mainTextColor;
+	font-size: 1.6rem;
+}
+
+//nav
+
+.nav-mobile {
+	opacity: 1;
+	overflow: hidden;
+	&__links {
+		position: fixed;
+		top: 0;
+		transform: translateX(-100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+		background-image: url('/img/terraria-mobile-bg.png');
+		background-size: cover;
+		background-position: center;
+		background-color: $mintColor;
+		z-index: 100;
+	}
+
+	&__title,
+	&__link {
+		transform: translateX(-150%);
+	}
+
+	&__title {
+		width: 100%;
+		padding: .25em;
+		font-size: 5rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
+		background-color: rgba($secondaryAssetColor, 0.8);
+		color: $dark;
+		z-index: 110;
+	}
+
+	&__link {
+		width: 100%;
+		color: $mainTextColor;
+		text-align: center;
+		font-size: 3rem;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: bold;
+		padding: .05em;
+		z-index: 110;
+
+		&:nth-child(odd){
+			background-color: rgba($mainColor, 0.6);
+		}
+
+		&:nth-child(even){
+			background-color: rgba($secondaryMainColor, 0.6);
+		}
+	}
+}
+
+//header
+
+.header {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	background-image: url('/img/terraria-bg-big.png');
+	background-size: cover;
+	background-position: center;
+	opacity: 1;
+	overflow: hidden;
+
+	&__box {
+		position: absolute;
+		// top: 50%;
+		// left: 50%;
+		// transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		padding-bottom: 2rem;
+		z-index: 5;
+	}
+
+	&__logo {
+		position: relative;
+		background-image: url('/img/terraria-logo.jpg');
+		background-size: cover;
+		background-position: center;
+		width: 50%;
+		height: 50%;
+		border-radius: 10px;
+		box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
+		filter: hue-rotate(-30deg);
+		overflow: hidden;
+
+		&--shadow {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(#5e634ac2, 0.3);
+			z-index: 1;
+		}
+	}
+
+	&__title {
+		padding: 0.3em 1em;
+		font-size: 3.5rem;
+		font-weight: bold;
+		line-height: 4rem;
+		text-align: center;
+
+		span {
+			color: $assetColor;
+			font-size: 1.1em;
+		}
+	}
+
+	&__shadow {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(39, 87, 26, 0.548);
+		z-index: 2;
+	}
+
+	&__asset {
+		position: absolute;
+
+		&--leaf-one {
+			display: none;
+			left: -1%;
+			font-size: 27rem;
+			animation: waveLeft 40s infinite ease-in-out;
+		}
+
+		&--leaf-two {
+			display: none;
+			right: -1.5%;
+			bottom: -10%;
+			font-size: 26rem;
+			animation: wave 50s infinite reverse ease-in-out;
+		}
+
+		&--star-one {
+			display: none;
+			right: -3%;
+			top: 10%;
+			font-size: 22rem;
+			animation: rotate 70s infinite reverse linear;
+		}
+
+		&--star-two {
+			display: none;
+			left: -5%;
+			bottom: 5%;
+			font-size: 25rem;
+			animation: rotate 80s infinite linear;
+		}
+	}
+}
+
+header {
+	height: 300vh;
+}
+
+@import 'breakpoints/small.scss';
+@import 'breakpoints/medium.scss';
+@import 'breakpoints/big.scss';

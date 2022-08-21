@@ -1,0 +1,68 @@
+@media (min-width: 768px) {
+
+	.nav-mobile__links,
+	.burger-btn,
+	.burger-btn-x {
+		display: none;
+	}
+	
+	.header {
+		&__title {
+			font-size: 6rem;
+			line-height: 0.9em;
+		}
+
+		&__logo {
+			background-position: top;
+		}
+
+		&__asset {
+			&--leaf-one {
+				font-size: 8rem;
+				top: 10%;
+				display: inline;
+			}
+
+			&--leaf-two {
+				font-size: 9rem;
+				bottom: 10%;
+				display: inline;
+			}
+
+			&--star-one {
+				font-size: 11rem;
+			}
+
+			&--star-two {
+				font-size: 13rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.header {
+		&__logo {
+			width: 30%;
+		}
+
+		&__asset {
+			&--leaf-one {
+				font-size: 13rem;
+				top: 10%;
+			}
+
+			&--leaf-two {
+				font-size: 14rem;
+			}
+
+			&--star-one {
+				font-size: 17rem;
+			}
+
+			&--star-two {
+				font-size: 16rem;
+			}
+		}
+	}
+}
