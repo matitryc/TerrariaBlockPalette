@@ -3,61 +3,54 @@ const navMobileLinks = document.querySelectorAll('.nav-mobile__link')
 const navMobileTitle = document.querySelector('.nav-mobile__title')
 const burgerBtn = document.querySelectorAll('.burger-btn-script')
 
-
 const handleNav = () => {
-    void navMobile.offsetWidth;
-    void navMobileTitle.offsetWidth;
-    navMobileLinks.forEach(link => void link.offsetWidth)
-    burgerBtn.forEach(burger => void burger.offsetWidth)
+	burgerBtn.forEach(burger => burger.classList.toggle('transformation'))
+	navMobile.classList.toggle('slide-in')
+	navMobileTitle.classList.toggle('slide-in')
 
-    if (!burgerBtn[0].classList.contains('transformation-active') && (!burgerBtn[0].classList.contains('transformation-inactive'))){
-        burgerBtn[0].classList.add('transformation-active')
-        burgerBtn[1].classList.add('visible')
-        burgerBtn[1].classList.add('transformation-inactive')
+	let transitionDelay = 0
+	navMobileLinks.forEach(link => {
+		link.style.transitionDelay = transitionDelay + 's'
+		link.classList.toggle('slide-in')
+		transitionDelay += 0.1
+	})
 
-       
-    }
-    else {
-        burgerBtn.forEach(burger => burger.classList.toggle('transformation-active'))
-        burgerBtn.forEach(burger => burger.classList.toggle('transformation-inactive'))
-    }
+	const disableScroll = () => {
+		scrollTop = window.scrollY || document.documentElement.scrollTop
+		scrollLeft = window.scrollX || document.documentElement.scrollLeft
 
+		window.onscroll = function () {
+			window.scrollTo({
+				top: scrollTop,
+				left: scrollLeft,
+				behavior: 'instant',
+			})
+		}
+	}
 
+	const enableScroll = () => {
+		window.onscroll = function () {}
+	}
 
-    if (!navMobile.classList.contains('slide-in-active') && (!navMobile.classList.contains('slide-in-inactive'))){
-        navMobile.classList.add('slide-in-active')
-        navMobileTitle.classList.add('slide-in-active')
-    }
-    else {
-        navMobile.classList.toggle('slide-in-active')
-        navMobileTitle.classList.toggle('slide-in-active')
-        
-        navMobile.classList.toggle('slide-in-inactive')
-        navMobileTitle.classList.toggle('slide-in-inactive')
-    }
+	if (burgerBtn[0].classList.contains('transformation') && document.documentElement.clientWidth < 768) {
+		window.addEventListener('scroll', disableScroll())
+	} else enableScroll()
 
+	const handleResize = () => {
+		if (document.documentElement.clientWidth >= 768) {
+			enableScroll()
+			burgerBtn[0].classList.remove('transformation')
+			burgerBtn[1].classList.add('transformation')
+			navMobile.classList.remove('slide-in')
+			navMobileTitle.classList.remove('slide-in')
+            navMobileLinks.forEach(link => {
+                link.classList.remove('slide-in')
+            })
+		}
+	}
 
-
-    if (!navMobileLinks[0].classList.contains('slide-in-links-active') && (!navMobileLinks[0].classList.contains('slide-in-links-inactive'))){
-        let animationDelay = 0
-        navMobileLinks.forEach(link => {
-            link.style.animationDelay += animationDelay + 's'
-            link.classList.add('slide-in-links-active')
-            animationDelay += 0.1
-        })
-    }
-    else {
-        let animationDelay = 0
-        navMobileLinks.forEach(link => {
-            link.style.animationDelay += animationDelay + 's'
-            link.classList.toggle('slide-in-links-active')
-            link.classList.toggle('slide-in-links-inactive')
-            animationDelay += 0.1
-        })
-    }
-    
+	window.addEventListener('resize', handleResize)
 }
 
 navMobileLinks.forEach(link => link.addEventListener('click', handleNav))
-
 burgerBtn.forEach(burger => burger.addEventListener('click', handleNav))

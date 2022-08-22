@@ -41,13 +41,14 @@ body {
 		background-position: center;
 		background-color: $mintColor;
 		z-index: 100;
+		transition: 1s transform;
 	}
 
 	&__title,
 	&__link {
 		transform: translateX(-150%);
 	}
-
+	
 	&__title {
 		width: 100%;
 		padding: .25em;
@@ -58,6 +59,7 @@ body {
 		background-color: rgba($secondaryAssetColor, 0.8);
 		color: $dark;
 		z-index: 110;
+		transition: 1s transform;
 	}
 
 	&__link {
@@ -70,6 +72,7 @@ body {
 		font-weight: bold;
 		padding: .05em;
 		z-index: 110;
+		transition: 1.2s transform;
 
 		&:nth-child(odd){
 			background-color: rgba($mainColor, 0.6);

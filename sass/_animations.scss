@@ -1,122 +1,63 @@
 @keyframes glide {
-   0% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-   }
+	0% {
+		transform: translateX(-50%) scale(1);
+		opacity: 1;
+	}
 
-   50% {
-    transform: translateX(-50%) scale(1.08);
-    opacity: 0.8;
-   }
+	50% {
+		transform: translateX(-50%) scale(1.08);
+		opacity: 0.8;
+	}
 
-   0% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-   }
+	0% {
+		transform: translateX(-50%) scale(1);
+		opacity: 1;
+	}
 }
 
 @keyframes rotate {
-   from {
-      transform: rotate(0)
-   }
+	from {
+		transform: rotate(0);
+	}
 
-   to {
-      transform: rotate(360deg)
-   }
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes wave {
-   0% {
-      transform: rotate(30deg)
-   }
+	0% {
+		transform: rotate(30deg);
+	}
 
-   50% {
-      transform: rotate(-30deg)
-   }
-   
-   100% {
-      transform: rotate(30deg)
-   }
+	50% {
+		transform: rotate(-30deg);
+	}
+
+	100% {
+		transform: rotate(30deg);
+	}
 }
 
 @keyframes waveLeft {
-   0% {
-      transform: rotate(40deg)
-   }
-   
-   50% {
-      transform: rotate(80deg)
-   }
-   
-   100% {
-      transform: rotate(40deg)
-   }
+	0% {
+		transform: rotate(40deg);
+	}
+
+	50% {
+		transform: rotate(80deg);
+	}
+
+	100% {
+		transform: rotate(40deg);
+	}
 }
 
-@keyframes slideInNav {
-   from {
-      transform: translateX(-100%);
-   }
-
-   to {
-      transform: translateX(0)
-   }
+nav .slide-in {
+	transform: translateX(0);
 }
 
-@keyframes slideInLinks {
-   from {
-      transform: translateX(-150%);
-   }
-
-   to {
-      transform: translateX(0)
-   }
-}
-
-.slide-in {
-   &-active {
-      animation: slideInNav 0.8s forwards;
-   }
-   &-links-active {
-      animation: slideInLinks 1s forwards
-   }
-}
-
-.slide-in {
-   &-inactive {
-      animation: slideInNav 0.8s forwards reverse;
-   }
-
-   &-links-inactive {
-      animation: slideInLinks 1s forwards reverse;
-   }
-}
-
-@keyframes transformation {
-   0% {
-      visibility: visible;
-      transform: rotate(0) skew(0) scale(1);
-      opacity: 1;
-   }
-
-   99% {
-      visibility: visible;
-      transform: rotate(720deg) skew(20deg) scale(.1);
-      opacity: 0;
-   }
-   to {
-      visibility: hidden;
-      transform: rotate(720deg) skew(20deg) scale(.1);
-      opacity: 0;
-   }
-}
-
-.transformation {
-   &-active {
-      animation: transformation .5s forwards;
-   }
-
-   &-inactive {
-      animation: transformation .5s reverse forwards;
-   }
+nav .transformation {
+	transform: rotate(1080deg) skew(20deg) scale(0.1);
+	opacity: 0;
 }

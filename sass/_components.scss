@@ -36,20 +36,23 @@
     height: 4em;
     font-size: 2rem;
     z-index: 110;
+
+    visibility: visible;
+	transform: rotate(0) skew(0) scale(1);
+	opacity: 1;
+    transition: visibility 0.9s, transform 0.9s, opacity 0.9s;
 }
 
 .burger-btn-x {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
     img {
         width: 70%;
     }
 }
 
 .burger-btn {
-    transform: rotate(0) skew(0) scale(1);
     display: flex;
     flex-direction: column;
     justify-content: center;
