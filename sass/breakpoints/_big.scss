@@ -12,6 +12,16 @@
 			font-size: 8rem;
 		}
 	}
+	.nav-desktop {
+		&__link {
+			font-size: 4rem;
+			padding: 1.5rem 1rem;
+
+			&-icon {
+				height: 4.5rem;
+			}
+		}
+	}
 }
 
 @media (min-width: 1400px) {

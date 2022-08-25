@@ -1,7 +1,10 @@
 const navMobile = document.querySelector('.nav-mobile__links')
 const navMobileLinks = document.querySelectorAll('.nav-mobile__link')
 const navMobileTitle = document.querySelector('.nav-mobile__title')
+const navDesktop = document.querySelector('.nav-desktop')
+const navDesktopLinks = document.querySelectorAll('.nav-desktop__links > *')
 const burgerBtn = document.querySelectorAll('.burger-btn-script')
+const html = document.querySelector('html')
 
 const handleNav = () => {
 	burgerBtn.forEach(burger => burger.classList.toggle('transformation'))
@@ -52,5 +55,17 @@ const handleNav = () => {
 	window.addEventListener('resize', handleResize)
 }
 
+const navDistance = navDesktop.offsetTop
+const scrollPadding = () => {
+	if (window.scrollY > navDistance) {
+		navDesktopLinks.forEach(link => link.classList.add('scale'))
+	} else {
+		navDesktopLinks.forEach(link => link.classList.remove('scale'))
+	}
+	let height = navDesktop.offsetHeight
+	html.style.scrollPaddingTop = height + "px"
+}
+
+window.addEventListener('scroll', scrollPadding)
 navMobileLinks.forEach(link => link.addEventListener('click', handleNav))
 burgerBtn.forEach(burger => burger.addEventListener('click', handleNav))

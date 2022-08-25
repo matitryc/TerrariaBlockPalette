@@ -1,11 +1,14 @@
 @media (min-width: 768px) {
-
 	.nav-mobile__links,
 	.burger-btn,
 	.burger-btn-x {
 		display: none;
 	}
-	
+
+	.nav-desktop {
+		display: block;
+	}
+
 	.header {
 		&__title {
 			font-size: 6rem;
@@ -62,6 +65,15 @@
 
 			&--star-two {
 				font-size: 16rem;
+			}
+		}
+	}
+	.nav-desktop {
+		&__link {
+			font-size: 3rem;
+
+			&-icon {
+				height: 3.5rem;
 			}
 		}
 	}

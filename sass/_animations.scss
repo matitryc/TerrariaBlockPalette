@@ -61,3 +61,29 @@ nav .transformation {
 	transform: rotate(1080deg) skew(20deg) scale(0.1);
 	opacity: 0;
 }
+
+.scale {
+	transform: scale(0.9) !important
+}
+
+.scaleY {
+	transform: scale(0.9) !important
+}
+
+@keyframes colorChange {
+	0% {
+		filter: hue-rotate(0deg)
+	}
+
+	10% {
+		filter: hue-rotate(-50deg)
+	}
+
+	90% {
+		filter: hue-rotate(-310deg)
+	}
+
+	100% {
+		filter: hue-rotate(-360deg)
+	}
+}
