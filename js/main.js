@@ -2,7 +2,7 @@ const navMobile = document.querySelector('.nav-mobile__links')
 const navMobileLinks = document.querySelectorAll('.nav-mobile__link')
 const navMobileTitle = document.querySelector('.nav-mobile__title')
 const navDesktop = document.querySelector('.nav-desktop')
-const navDesktopLinks = document.querySelectorAll('.nav-desktop__links > *')
+const navDesktopText = document.querySelectorAll('.nav-desktop__link-text')
 const burgerBtn = document.querySelectorAll('.burger-btn-script')
 const html = document.querySelector('html')
 
@@ -58,9 +58,9 @@ const handleNav = () => {
 const navDistance = navDesktop.offsetTop
 const scrollPadding = () => {
 	if (window.scrollY > navDistance) {
-		navDesktopLinks.forEach(link => link.classList.add('scale'))
+		navDesktopText.forEach(link => link.classList.add('scale'))
 	} else {
-		navDesktopLinks.forEach(link => link.classList.remove('scale'))
+		navDesktopText.forEach(link => link.classList.remove('scale'))
 	}
 	let height = navDesktop.offsetHeight
 	html.style.scrollPaddingTop = height + "px"
