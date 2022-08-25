@@ -328,7 +328,7 @@ body {
           align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url("/img/terraria-mobile-bg.png");
+  background-image: url("../img/terraria-mobile-bg.png");
   background-size: cover;
   background-position: center;
   background-color: rgb(226, 226, 226);
@@ -445,7 +445,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("/img/terraria-bg-big.png");
+  background-image: url("../img/terraria-bg-big.png");
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -473,7 +473,7 @@ body {
 }
 .header__logo {
   position: relative;
-  background-image: url("/img/terraria-logo.jpg");
+  background-image: url("../img/terraria-logo.jpg");
   background-size: cover;
   background-position: center;
   width: 50%;
