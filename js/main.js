@@ -75,7 +75,7 @@ const scrollPadding = () => {
 	let desktopHeight = navDesktop.offsetHeight
 	let mobileHeight = burgerBtnBg.offsetHeight
 
-	if (mobileHeight == 0) {
+	if (mobileHeight === 0) {
 		html.style.scrollPaddingTop = desktopHeight + 'px'
 	} else {
 		html.style.scrollPaddingTop = mobileHeight + 'px'
