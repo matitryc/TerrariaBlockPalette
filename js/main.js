@@ -92,8 +92,6 @@ const scrollPadding = () => {
 	} else {
 		burgerBtnBg.classList.remove('slide-in')
 	}
-
-	return navDistance
 }
 
 window.addEventListener('scroll', scrollPadding)
