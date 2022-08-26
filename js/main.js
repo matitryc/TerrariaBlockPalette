@@ -1,15 +1,32 @@
 const navMobile = document.querySelector('.nav-mobile__links')
 const navMobileLinks = document.querySelectorAll('.nav-mobile__link')
 const navMobileTitle = document.querySelector('.nav-mobile__title')
+
 const navDesktop = document.querySelector('.nav-desktop')
 const navDesktopText = document.querySelectorAll('.nav-desktop__link-text')
+
 const burgerBtn = document.querySelectorAll('.burger-btn-script')
+const burgerBtnBg = document.querySelector('.burger-btn-bg')
+
 const html = document.querySelector('html')
+const main = document.querySelector('main')
+
+let desktopHeight = navDesktop.offsetHeight
+let mobileHeight = burgerBtnBg.offsetHeight
+let mainDistance = main.offsetTop - mobileHeight
+const navDistance = navDesktop.offsetTop 
 
 const handleNav = () => {
 	burgerBtn.forEach(burger => burger.classList.toggle('transformation'))
 	navMobile.classList.toggle('slide-in')
 	navMobileTitle.classList.toggle('slide-in')
+
+	burgerBtnBg.classList.remove('slide-in')
+	if (window.scrollY > mainDistance && !burgerBtn[0].classList.contains('transformation')) {
+		burgerBtnBg.classList.add('slide-in')
+	} else {
+		burgerBtnBg.classList.remove('slide-in')
+	}
 
 	let transitionDelay = 0
 	navMobileLinks.forEach(link => {
@@ -54,16 +71,21 @@ const handleNav = () => {
 
 	window.addEventListener('resize', handleResize)
 }
-
-const navDistance = navDesktop.offsetTop
 const scrollPadding = () => {
+	html.style.scrollPaddingTop = mobileHeight + "px"
+
 	if (window.scrollY > navDistance) {
 		navDesktopText.forEach(link => link.classList.add('scale'))
 	} else {
 		navDesktopText.forEach(link => link.classList.remove('scale'))
 	}
-	let height = navDesktop.offsetHeight
-	html.style.scrollPaddingTop = height + "px"
+
+	if (window.scrollY > mainDistance) {
+		burgerBtnBg.classList.add('slide-in')
+	} else {
+		burgerBtnBg.classList.remove('slide-in')
+	}
+
 }
 
 window.addEventListener('scroll', scrollPadding)

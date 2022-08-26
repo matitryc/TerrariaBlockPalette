@@ -185,6 +185,10 @@ header .wrapper {
   visibility: visible;
 }
 
+.section {
+  padding: 2em 2em;
+}
+
 .bg-shadow {
   position: absolute;
   width: 100%;
@@ -260,6 +264,22 @@ header .wrapper {
 }
 .burger-btn::after {
   width: 60%;
+}
+
+.burger-btn-bg {
+  display: block;
+  position: fixed;
+  top: 0;
+  height: calc(3% + 4em);
+  width: 100%;
+  z-index: 109;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
 }
 
 .header-arrow {
@@ -545,6 +565,24 @@ body {
           animation: rotate 80s infinite linear;
 }
 
+.main .welcome {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.main .welcome__heading {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 4rem;
+  grid-row: 1/2;
+  grid-column: 1/13;
+  margin-bottom: 1em;
+}
+.main .welcome__text {
+  grid-row: 2/3;
+  grid-column: 1/13;
+  font-size: 2.5rem;
+}
+
 @media (min-height: 450px) {
   .header-arrow {
     display: block;
@@ -586,7 +624,8 @@ body {
 @media (min-width: 768px) {
   .nav-mobile__links,
 .burger-btn,
-.burger-btn-x {
+.burger-btn-x,
+.burger-btn-bg {
     display: none;
   }
   .nav-desktop {
