@@ -11,10 +11,9 @@ const burgerBtnBg = document.querySelector('.burger-btn-bg')
 const html = document.querySelector('html')
 const main = document.querySelector('main')
 
-let desktopHeight = navDesktop.offsetHeight
+let navDistance = navDesktop.offsetTop
 let mobileHeight = burgerBtnBg.offsetHeight
 let mainDistance = main.offsetTop - mobileHeight
-const navDistance = navDesktop.offsetTop 
 
 const handleNav = () => {
 	burgerBtn.forEach(burger => burger.classList.toggle('transformation'))
@@ -63,18 +62,26 @@ const handleNav = () => {
 			burgerBtn[1].classList.add('transformation')
 			navMobile.classList.remove('slide-in')
 			navMobileTitle.classList.remove('slide-in')
-            navMobileLinks.forEach(link => {
-                link.classList.remove('slide-in')
-            })
+			navMobileLinks.forEach(link => {
+				link.classList.remove('slide-in')
+			})
 		}
 	}
 
 	window.addEventListener('resize', handleResize)
 }
 const scrollPadding = () => {
-	html.style.scrollPaddingTop = mobileHeight + "px"
+	let navDistance = navDesktop.offsetTop
+	let desktopHeight = navDesktop.offsetHeight
+	let mobileHeight = burgerBtnBg.offsetHeight
 
-	if (window.scrollY > navDistance) {
+	if (mobileHeight == 0) {
+		html.style.scrollPaddingTop = desktopHeight + 'px'
+	} else {
+		html.style.scrollPaddingTop = mobileHeight + 'px'
+	}
+
+	if (window.scrollY >= navDistance) {
 		navDesktopText.forEach(link => link.classList.add('scale'))
 	} else {
 		navDesktopText.forEach(link => link.classList.remove('scale'))
@@ -86,6 +93,7 @@ const scrollPadding = () => {
 		burgerBtnBg.classList.remove('slide-in')
 	}
 
+	return navDistance
 }
 
 window.addEventListener('scroll', scrollPadding)
