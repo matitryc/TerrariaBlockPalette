@@ -57,6 +57,10 @@ nav .slide-in {
 	transform: translateX(0);
 }
 
+section .appear {
+	opacity: 1;
+}
+
 
 nav .transformation {
 	transform: rotate(1080deg) skew(20deg) scale(0.1);

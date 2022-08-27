@@ -8,6 +8,11 @@ const navDesktopText = document.querySelectorAll('.nav-desktop__link-text')
 const burgerBtn = document.querySelectorAll('.burger-btn-script')
 const burgerBtnBg = document.querySelector('.burger-btn-bg')
 
+const mainSlideElements = document.querySelectorAll('.welcome__text')
+const slideElementsHeight = Object.values(mainSlideElements).map(element => (element = element.offsetHeight))
+const slideElementsDistance = Object.values(mainSlideElements).map(element => (element = element.offsetTop))
+const screenProportion = 4 / 5
+
 const html = document.querySelector('html')
 const main = document.querySelector('main')
 
@@ -95,6 +100,22 @@ const scrollPadding = () => {
 	}
 }
 
+const handleSlideElements = () => {
+	let screenPoint = window.screen.height / 10
+	for (let i = 0; i < mainSlideElements.length; i++) {
+		if (document.documentElement.clientWidth < 768) {
+			if (window.scrollY + slideElementsHeight[i] + screenPoint >= slideElementsDistance[i]) {
+				mainSlideElements[i].classList.add('appear')
+			}
+		} else {
+			if (window.scrollY + slideElementsHeight[i] + (screenPoint * 3) >= slideElementsDistance[i]) {
+				mainSlideElements[i].classList.add('appear')
+			}
+		}
+	}
+}
+
 window.addEventListener('scroll', scrollPadding)
+window.addEventListener('scroll', handleSlideElements)
 navMobileLinks.forEach(link => link.addEventListener('click', handleNav))
 burgerBtn.forEach(burger => burger.addEventListener('click', handleNav))
