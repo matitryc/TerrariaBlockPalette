@@ -88,7 +88,7 @@ const scrollPadding = () => {
 		navDesktopText.forEach(link => link.classList.remove('scale'))
 	}
 
-	if (window.scrollY >= mainDistance) {
+	if (window.scrollY >= mainDistance && !burgerBtn[0].classList.contains('transformation')) {
 		burgerBtnBg.classList.add('slide-in')
 	} else {
 		burgerBtnBg.classList.remove('slide-in')
