@@ -457,6 +457,9 @@ body {
           justify-content: center;
   color: #CED89E;
 }
+.nav-desktop__link:first-child:hover .nav-desktop__link-text {
+  color: rgba(14, 3, 4, 0.9);
+}
 .nav-desktop__link:hover {
   color: rgba(14, 3, 4, 0.9);
   background-color: rgb(226, 226, 226);
@@ -723,7 +726,7 @@ body {
     height: 3.5rem;
   }
   .welcome__text {
-    margin-top: 1.2em;
+    margin-top: 1.5em;
     font-size: 3.3rem;
   }
   .welcome__text:nth-child(2) {
@@ -751,6 +754,9 @@ body {
   }
   .nav-desktop__link-icon {
     height: 4.5rem;
+  }
+  .welcome__text {
+    margin-top: 2.4em;
   }
 }
 @media (min-width: 1400px) {

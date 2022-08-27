@@ -116,6 +116,10 @@ body {
 			color: $assetColor;
 		}
 
+		&:first-child:hover  &-text {
+			color: $dark;
+		}
+
 		&:hover {
 			color: $dark;
 			background-color: $mintColor;

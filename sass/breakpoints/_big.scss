@@ -28,6 +28,12 @@
 			}
 		}
 	}
+
+	.welcome {
+		&__text {
+			margin-top: 2.4em;
+		}
+	}
 }
 
 @media (min-width: 1400px) {
