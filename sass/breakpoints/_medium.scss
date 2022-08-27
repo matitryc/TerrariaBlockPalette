@@ -45,6 +45,12 @@
 }
 
 @media (min-width: 992px) {
+	.section {
+		&__heading {
+            font-size: 6rem;
+        }
+	}
+	
 	.header {
 		&__logo {
 			width: 30%;
@@ -80,10 +86,6 @@
 	}
 
 	.welcome {
-        &__heading {
-            font-size: 6rem;
-        }
-        
         &__text {
             margin-top: 1.2em;
             font-size: 3.3rem;

@@ -21,6 +21,20 @@ header .wrapper {
 
 .section {
 	padding: 6em 2em;
+
+	&__heading {
+		display: inline;
+		letter-spacing: 3px;
+		font-size: 4rem;
+		color: $darker;
+		text-transform: uppercase;
+		background-color: $secondaryMainColor;
+		// overflow: hidden;
+
+		span {
+			color: $darkMainColor;
+		}
+	}
 }
 
 .bg-shadow {

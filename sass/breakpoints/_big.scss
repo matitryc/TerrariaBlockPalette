@@ -7,6 +7,12 @@
 }
 
 @media (min-width: 1200px) {
+	.section {
+		&__heading {
+            font-size: 6.35rem;
+        }
+	}
+	
 	.header {
 		&__title {
 			font-size: 8rem;
@@ -21,12 +27,6 @@
 				height: 4.5rem;
 			}
 		}
-	}
-
-	.welcome {
-        &__heading {
-            font-size: 6.35rem;
-        }
 	}
 }
 
