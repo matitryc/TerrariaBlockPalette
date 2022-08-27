@@ -8,7 +8,6 @@
 	box-sizing: border-box;
 }
 
-
 html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
@@ -54,7 +53,7 @@ body {
 		padding: 0.25em;
 		font-size: 5rem;
 		font-weight: bold;
-		text-transform: uppercase;
+		text-transform: lowercase;
 		text-align: center;
 		background-color: rgba($secondaryAssetColor, 0.8);
 		color: $dark;
@@ -68,7 +67,7 @@ body {
 		text-align: center;
 		font-size: 3rem;
 		text-decoration: none;
-		text-transform: uppercase;
+		text-transform: lowercase;
 		font-weight: bold;
 		padding: 0.05em;
 		z-index: 110;
@@ -91,14 +90,14 @@ body {
 	width: 100%;
 	background-image: linear-gradient(30deg, $dark, $darker);
 	z-index: 1000;
-	
+
 	&__links {
 		display: flex;
 		align-items: center;
 		font-family: 'Heebo', sans-serif;
 		text-align: center;
 	}
-	
+
 	&__link {
 		font-size: 2.5rem;
 		display: block;
@@ -108,9 +107,9 @@ body {
 		text-decoration: none;
 		font-weight: bold;
 		color: $mintColor;
-		transition: color .3s, background-color .3s;
+		transition: color 0.3s, background-color 0.3s;
 
-		&:first-child &-text{
+		&:first-child &-text {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -133,7 +132,7 @@ body {
 
 		&-text {
 			display: block;
-			transition: transform .3s;
+			transition: transform 0.3s;
 		}
 	}
 }
@@ -244,29 +243,51 @@ body {
 	}
 }
 
-.main {
-	.welcome {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
-		&__heading {
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			font-size: 4rem;
-			grid-row: 1 / 2;
-			grid-column: 1 / 13;
-			margin-bottom: 1em;
+.welcome {
+	&__heading {
+		display: inline;
+		letter-spacing: 3px;
+		font-size: 4rem;
+		color: $darker;
+		text-transform: uppercase;
+		background-color: $secondaryMainColor;
+
+		span {
+			color: $darkMainColor;
 		}
-		
-		&__text {
-			grid-row: 2 / 3;
-			grid-column: 1 / 13;
-			font-size: 2.5rem;
+	}
+
+	&__text {
+		margin-top: 1em;
+		padding: 0.5em 0.5em;
+		color: $mainTextColor;
+		background-color: $darker;
+		border-radius: 10px;
+		box-shadow: 5px 5px 5px rgba($darker, 0.5);
+		font-size: 2.5rem;
+		font-family: 'Cinzel', serif;
+		font-family: 'Work Sans', sans-serif;
+
+		&--highlight {
+			color: $assetColor;
+			font-weight: bold;
+			letter-spacing: 2px;
+		}
+
+		&:nth-child(2) {
+			margin-top: 4em;
+		}
+
+		&:nth-child(3) {
+			background-color: $dark;
+			color: $mintColor;
+
+			.welcome__text--highlight {
+				color: $secondaryAssetColor;
+			}
 		}
 	}
 }
-
-
-
 
 @import 'breakpoints/small.scss';
 @import 'breakpoints/medium.scss';

@@ -78,4 +78,23 @@
 			}
 		}
 	}
+
+	.welcome {
+        &__heading {
+            font-size: 6rem;
+        }
+        
+        &__text {
+            margin-top: 1.2em;
+            font-size: 3.3rem;
+
+            &:nth-child(2) {
+                margin-right: 4.3em;
+            }
+
+            &:nth-child(4) {
+                margin-left: 5.8em;
+            }
+        }
+    }
 }

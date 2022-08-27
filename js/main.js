@@ -74,6 +74,7 @@ const scrollPadding = () => {
 	let navDistance = navDesktop.offsetTop
 	let desktopHeight = navDesktop.offsetHeight
 	let mobileHeight = burgerBtnBg.offsetHeight
+	let mainDistance = main.offsetTop - mobileHeight
 
 	if (mobileHeight === 0) {
 		html.style.scrollPaddingTop = desktopHeight + 'px'
@@ -87,7 +88,7 @@ const scrollPadding = () => {
 		navDesktopText.forEach(link => link.classList.remove('scale'))
 	}
 
-	if (window.scrollY > mainDistance) {
+	if (window.scrollY >= mainDistance) {
 		burgerBtnBg.classList.add('slide-in')
 	} else {
 		burgerBtnBg.classList.remove('slide-in')

@@ -22,6 +22,12 @@
 			}
 		}
 	}
+
+	.welcome {
+        &__heading {
+            font-size: 6.35rem;
+        }
+	}
 }
 
 @media (min-width: 1400px) {

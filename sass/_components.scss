@@ -20,7 +20,7 @@ header .wrapper {
 }
 
 .section {
-	padding: 2em 2em;
+	padding: 6em 2em;
 }
 
 .bg-shadow {
@@ -96,7 +96,7 @@ header .wrapper {
 	height: calc(3% + 4em);
 	width: 100%;
 	z-index: 109;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba($dark, 0.8);
 	transform: translateX(100%);
 	transition: transform 1s;
 }
