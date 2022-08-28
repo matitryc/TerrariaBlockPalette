@@ -5,6 +5,7 @@ const navMobileTitle = document.querySelector('.nav-mobile__title')
 const navDesktop = document.querySelector('.nav-desktop')
 const navDesktopText = document.querySelectorAll('.nav-desktop__link-text')
 
+const header = document.querySelector('.header')
 const burgerBtn = document.querySelectorAll('.burger-btn-script')
 const burgerBtnBg = document.querySelector('.burger-btn-bg')
 
@@ -16,7 +17,6 @@ const screenProportion = 4 / 5
 const html = document.querySelector('html')
 const main = document.querySelector('main')
 
-let navDistance = navDesktop.offsetTop
 let mobileHeight = burgerBtnBg.offsetHeight
 let mainDistance = main.offsetTop - mobileHeight
 
@@ -76,7 +76,7 @@ const handleNav = () => {
 	window.addEventListener('resize', handleResize)
 }
 const scrollPadding = () => {
-	let navDistance = navDesktop.offsetTop
+	let headerHeight = header.offsetHeight
 	let desktopHeight = navDesktop.offsetHeight
 	let mobileHeight = burgerBtnBg.offsetHeight
 	let mainDistance = main.offsetTop - mobileHeight
@@ -87,7 +87,7 @@ const scrollPadding = () => {
 		html.style.scrollPaddingTop = mobileHeight + 'px'
 	}
 
-	if (window.scrollY >= navDistance) {
+	if (window.scrollY >= headerHeight) {
 		navDesktopText.forEach(link => link.classList.add('scale'))
 	} else {
 		navDesktopText.forEach(link => link.classList.remove('scale'))
