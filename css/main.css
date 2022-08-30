@@ -170,6 +170,30 @@ nav .transformation {
             filter: hue-rotate(-360deg);
   }
 }
+@-webkit-keyframes glow {
+  from {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) scale(1.3);
+            transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0;
+  }
+}
+@keyframes glow {
+  from {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) scale(1.3);
+            transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0;
+  }
+}
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
@@ -190,18 +214,30 @@ header .wrapper {
 }
 
 .section {
-  padding: 6em 2em;
+  padding: 4em 2em;
 }
 .section__heading {
   display: inline;
   letter-spacing: 3px;
   font-size: 4rem;
-  color: rgba(1, 3, 1, 0.8);
   text-transform: uppercase;
-  background-color: hsl(140deg, 29%, 65%);
 }
 .section__heading span {
   color: hsl(140deg, 19%, 38%);
+}
+.section:nth-child(odd) .section__heading {
+  color: rgba(1, 3, 1, 0.8);
+  background-color: hsl(140deg, 29%, 65%);
+}
+.section:nth-child(odd) .section__heading span {
+  color: hsl(140deg, 19%, 38%);
+}
+.section:nth-child(even) {
+  background-color: hsl(140deg, 19%, 38%);
+}
+.section:nth-child(even) .section__heading {
+  color: #FCF8E8;
+  background-color: hsl(139deg, 16%, 46%);
 }
 
 .bg-shadow {
@@ -384,6 +420,7 @@ body {
   font-weight: bold;
   text-transform: lowercase;
   text-align: center;
+  text-decoration: none;
   background-color: rgba(236, 179, 144, 0.8);
   color: rgba(14, 3, 4, 0.9);
   z-index: 110;
@@ -419,7 +456,7 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  background-image: linear-gradient(30deg, rgba(14, 3, 4, 0.9), rgba(1, 3, 1, 0.8));
+  background-image: linear-gradient(30deg, rgba(14, 3, 4, 0.92), rgba(1, 3, 1, 0.92));
   z-index: 1000;
 }
 .nav-desktop__links {
@@ -552,6 +589,7 @@ body {
 }
 .header__asset {
   position: absolute;
+  z-index: 5;
 }
 .header__asset--leaf-one {
   display: none;
@@ -559,6 +597,7 @@ body {
   font-size: 27rem;
   -webkit-animation: waveLeft 40s infinite ease-in-out;
           animation: waveLeft 40s infinite ease-in-out;
+  color: #76BA99;
 }
 .header__asset--leaf-two {
   display: none;
@@ -566,6 +605,7 @@ body {
   bottom: -10%;
   font-size: 26rem;
   animation: wave 50s infinite reverse ease-in-out;
+  color: #76BA99;
 }
 .header__asset--star-one {
   display: none;
@@ -573,6 +613,7 @@ body {
   top: 10%;
   font-size: 22rem;
   animation: rotate 70s infinite reverse linear;
+  color: #CED89E;
 }
 .header__asset--star-two {
   display: none;
@@ -581,6 +622,7 @@ body {
   font-size: 25rem;
   -webkit-animation: rotate 80s infinite linear;
           animation: rotate 80s infinite linear;
+  color: hsl(140deg, 29%, 65%);
 }
 
 .welcome__text {
@@ -592,7 +634,6 @@ body {
   -webkit-box-shadow: 5px 5px 5px rgba(1, 3, 1, 0.5);
           box-shadow: 5px 5px 5px rgba(1, 3, 1, 0.5);
   font-size: 2.5rem;
-  font-family: "Cinzel", serif;
   font-family: "Work Sans", sans-serif;
   opacity: 0;
   -webkit-transition: opacity 0.7s;
@@ -614,6 +655,112 @@ body {
   color: #ECB390;
 }
 
+.tutorials {
+  background-image: linear-gradient(30deg, rgba(118, 186, 153, 0.9), rgba(24, 34, 27, 0.9)), url("../img/terraria__tutorials-bg.webp");
+  background-size: cover;
+  background-position: 30% 20%;
+  z-index: -2;
+}
+.tutorials__comment {
+  position: relative;
+  padding: 0.5em;
+  max-width: 400px;
+  margin-top: 1.5em;
+  font-size: 2.5rem;
+  font-family: "Work Sans", sans-serif;
+  border-radius: 10px;
+  color: rgb(226, 226, 226);
+  background-image: linear-gradient(60deg, rgba(1, 3, 1, 0.8), rgba(14, 3, 4, 0.9));
+  overflow: hidden;
+  z-index: 1;
+}
+.tutorials__comment:first-child {
+  margin-top: 3em;
+}
+.tutorials__comment-text {
+  position: relative;
+  z-index: 5;
+}
+.tutorials__comment-text--highlight {
+  color: #CED89E;
+  font-weight: bold;
+}
+.tutorials__comment-asset {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-30%) rotate(-100deg);
+          transform: translateY(-30%) rotate(-100deg);
+  font-size: 20rem;
+  color: rgb(24, 34, 27);
+  z-index: 2;
+}
+.tutorials__hyperlink {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2em;
+  text-align: center;
+}
+.tutorials__hyperlink-logo, .tutorials__hyperlink-logo::after, .tutorials__hyperlink-logo::before {
+  height: 8em;
+  width: 8em;
+  border-radius: 50%;
+}
+.tutorials__hyperlink-logo {
+  position: relative;
+  background-image: url("../img/khaios-logo.jpg");
+  background-size: cover;
+  z-index: 3;
+  border: 2px solid rgb(226, 226, 226);
+}
+.tutorials__hyperlink-logo::before, .tutorials__hyperlink-logo::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  border: 2px solid rgb(226, 226, 226);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  opacity: 0.7;
+  z-index: 2;
+}
+.tutorials__hyperlink-logo::before {
+  -webkit-animation: glow 2.5s infinite;
+          animation: glow 2.5s infinite;
+}
+.tutorials__hyperlink-logo::after {
+  -webkit-animation: glow 2.5s 1.1s infinite;
+          animation: glow 2.5s 1.1s infinite;
+}
+.tutorials__hyperlink-youtube {
+  position: absolute;
+  bottom: 0;
+  right: -65%;
+  -webkit-transform: translateX(-50%) scale(1);
+          transform: translateX(-50%) scale(1);
+  width: 50%;
+  z-index: 3;
+  -webkit-animation: glide 3s infinite;
+          animation: glide 3s infinite;
+}
+.tutorials__video {
+  display: none;
+  width: 200px;
+  height: 160px;
+  margin-top: 2em;
+  background-color: rgb(226, 226, 226);
+  border-radius: 10px;
+}
+
 @media (min-height: 450px) {
   .header-arrow {
     display: block;
@@ -626,6 +773,9 @@ body {
   }
 }
 @media (min-width: 576px) {
+  .section {
+    padding: 5em 2em;
+  }
   .section__heading {
     font-size: 5rem;
   }
@@ -664,6 +814,31 @@ body {
   .welcome__text:nth-child(4) {
     margin-left: 5.5em;
   }
+  .tutorials__box {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .tutorials__comment {
+    max-width: none;
+    margin-top: 1.5em;
+  }
+  .tutorials__comment:nth-child(1) {
+    grid-row: 1/2;
+    grid-column: 2/7;
+  }
+  .tutorials__comment:nth-child(2) {
+    margin-top: 3em;
+    grid-row: 1/2;
+    grid-column: 8/13;
+  }
+  .tutorials__comment:nth-child(3) {
+    grid-row: 2/3;
+    grid-column: 2/7;
+  }
+  .tutorials__hyperlink {
+    grid-row: 2/3;
+    grid-column: 9/12;
+  }
 }
 @media (min-width: 768px) {
   .nav-mobile__links,
@@ -674,6 +849,9 @@ body {
   }
   .nav-desktop {
     display: block;
+  }
+  .section {
+    padding: 6em 2em;
   }
   .header__title {
     font-size: 6rem;
@@ -698,8 +876,18 @@ body {
   .header__asset--star-two {
     font-size: 13rem;
   }
+  .tutorials__comment {
+    font-size: 2.7rem;
+  }
+  .tutorials__hyperlink-logo, .tutorials__hyperlink-logo::before, .tutorials__hyperlink-logo::after {
+    height: 9em;
+    width: 9em;
+  }
 }
 @media (min-width: 992px) {
+  .section {
+    padding: 7em 2em;
+  }
   .section__heading {
     font-size: 6rem;
   }
@@ -735,6 +923,36 @@ body {
   .welcome__text:nth-child(4) {
     margin-left: 5.8em;
   }
+  .tutorials__box {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .tutorials__comment {
+    max-width: none;
+    margin-top: 1.5em;
+  }
+  .tutorials__comment:nth-child(1) {
+    grid-row: 1/2;
+    grid-column: 1/7;
+  }
+  .tutorials__comment:nth-child(2) {
+    margin-top: 3em;
+    grid-row: 1/2;
+    grid-column: 8/13;
+  }
+  .tutorials__comment:nth-child(3) {
+    grid-row: 2/3;
+    grid-column: 4/11;
+  }
+  .tutorials__hyperlink {
+    grid-row: 3/4;
+    grid-column: 4/7;
+  }
+  .tutorials__video {
+    display: block;
+    grid-row: 3/4;
+    grid-column: 8/13;
+  }
 }
 @media (min-width: 1050px) {
   .header__title {
@@ -742,6 +960,9 @@ body {
   }
 }
 @media (min-width: 1200px) {
+  .section {
+    padding: 8em 2em;
+  }
   .section__heading {
     font-size: 6.35rem;
   }
@@ -758,8 +979,27 @@ body {
   .welcome__text {
     margin-top: 2.4em;
   }
+  .tutorials__comment {
+    font-size: 3.45rem;
+  }
+  .tutorials__comment:nth-child(1) {
+    grid-row: 1/2;
+    grid-column: 2/6;
+  }
+  .tutorials__comment:nth-child(2) {
+    margin-top: 3em;
+    grid-row: 1/2;
+    grid-column: 8/12;
+  }
+  .tutorials__comment:nth-child(3) {
+    grid-row: 2/3;
+    grid-column: 4/10;
+  }
 }
 @media (min-width: 1400px) {
+  .section {
+    padding: 10em 2em;
+  }
   .header__asset--leaf-one {
     font-size: 17rem;
   }
@@ -771,5 +1011,8 @@ body {
   }
   .header__asset--star-two {
     font-size: 26rem;
+  }
+  .tutorials__comment {
+    font-size: 3.6rem;
   }
 }/*# sourceMappingURL=main.css.map */

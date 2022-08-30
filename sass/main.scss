@@ -55,6 +55,7 @@ body {
 		font-weight: bold;
 		text-transform: lowercase;
 		text-align: center;
+		text-decoration: none;
 		background-color: rgba($secondaryAssetColor, 0.8);
 		color: $dark;
 		z-index: 110;
@@ -88,7 +89,7 @@ body {
 	position: sticky;
 	top: 0;
 	width: 100%;
-	background-image: linear-gradient(30deg, $dark, $darker);
+	background-image: linear-gradient(30deg, rgba($dark, .92), rgba($darker, .92));
 	z-index: 1000;
 
 	&__links {
@@ -213,12 +214,14 @@ body {
 
 	&__asset {
 		position: absolute;
+		z-index: 5;
 
 		&--leaf-one {
 			display: none;
 			left: -1%;
 			font-size: 27rem;
 			animation: waveLeft 40s infinite ease-in-out;
+			color: $mainColor;
 		}
 
 		&--leaf-two {
@@ -227,6 +230,7 @@ body {
 			bottom: -10%;
 			font-size: 26rem;
 			animation: wave 50s infinite reverse ease-in-out;
+			color: $mainColor;
 		}
 
 		&--star-one {
@@ -235,6 +239,7 @@ body {
 			top: 10%;
 			font-size: 22rem;
 			animation: rotate 70s infinite reverse linear;
+			color: $assetColor;
 		}
 
 		&--star-two {
@@ -243,6 +248,7 @@ body {
 			bottom: 5%;
 			font-size: 25rem;
 			animation: rotate 80s infinite linear;
+			color: $secondaryMainColor;
 		}
 	}
 }
@@ -257,7 +263,6 @@ body {
 		border-radius: 10px;
 		box-shadow: 5px 5px 5px rgba($darker, 0.5);
 		font-size: 2.5rem;
-		font-family: 'Cinzel', serif;
 		font-family: 'Work Sans', sans-serif;
 		opacity: 0;
 		transition: opacity .7s;
@@ -280,6 +285,116 @@ body {
 				color: $secondaryAssetColor;
 			}
 		}
+	}
+}
+
+.tutorials {
+	background-image: linear-gradient(30deg, rgba($mainColor, .9), rgba($darkish, .9)), url('../img/terraria__tutorials-bg.webp');
+	background-size: cover;
+	background-position: 30% 20%;
+	z-index: -2;
+
+	&__comment {
+		position: relative;
+		padding: .5em;
+		max-width: 400px;
+		margin-top: 1.5em;
+		font-size: 2.5rem;
+		font-family: 'Work Sans', sans-serif;
+		border-radius: 10px;
+		color: $mintColor;
+		background-image: linear-gradient(60deg, $darker, $dark);
+		overflow: hidden;
+		z-index: 1;
+
+		&:first-child {
+			margin-top: 3em;
+		}
+
+		&-text {
+			position: relative;
+			z-index: 5;
+
+			&--highlight {
+				color: $assetColor;
+				font-weight: bold;
+			}
+		}
+
+		&-asset {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateY(-30%) rotate(-100deg);
+			font-size: 20rem;
+			color: $darkish;
+			z-index: 2;
+		}
+
+	}
+
+	&__hyperlink {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 2em;
+		text-align: center;
+		
+		&-logo,
+		&-logo::after,
+		&-logo::before {
+			height: 8em;
+			width: 8em;
+			border-radius: 50%;
+		}
+
+		&-logo {
+			position: relative;
+			background-image: url('../img/khaios-logo.jpg');
+			background-size: cover;
+			z-index: 3;
+			border: 2px solid $mintColor;
+
+			&::before,
+			&::after {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				content: '';
+				border: 2px solid $mintColor;
+				transform: translate(-50%, -50%) scale(1);
+				opacity: .7;
+				z-index: 2;
+			}
+
+			&::before {
+				animation: glow 2.5s infinite
+			}
+
+			&::after {
+				animation: glow 2.5s 1.1s infinite
+			}
+		}
+
+		&-youtube {
+			position: absolute;
+			bottom: 0;
+			right: -65%;
+			transform: translateX(-50%) scale(1);
+			width: 50%;
+			z-index: 3;
+			animation: glide 3s infinite;
+		}
+	}
+	&__video {
+		display: none;
+		width: 200px;
+		height: 160px;
+		margin-top: 2em;
+		background-color: $mintColor;
+		border-radius: 10px;
 	}
 }
 

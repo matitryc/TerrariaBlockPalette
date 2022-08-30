@@ -10,6 +10,10 @@
 		display: block;
 	}
 
+	.section {
+		padding: 6em 2em;
+	}
+
 	.header {
 		&__title {
 			font-size: 6rem;
@@ -42,10 +46,27 @@
 			}
 		}
 	}
+
+	.tutorials {
+		&__comment {
+			font-size: 2.7rem;
+		}
+
+		&__hyperlink {
+
+			&-logo,
+			&-logo::before,
+			&-logo::after{
+				height: 9em;
+				width: 9em;
+			}
+		}
+	}
 }
 
 @media (min-width: 992px) {
 	.section {
+		padding: 7em 2em;
 		&__heading {
             font-size: 6rem;
         }
@@ -99,4 +120,43 @@
             }
         }
     }
+
+	.tutorials {
+        &__box {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        &__comment {
+            max-width: none;
+            margin-top: 1.5em;
+            &:nth-child(1){
+                grid-row: 1 / 2;
+                grid-column: 1 / 7;
+            }
+
+            &:nth-child(2){
+                margin-top: 3em;
+                grid-row: 1 / 2;
+                grid-column: 8 / 13;
+            }
+
+            &:nth-child(3){
+                grid-row: 2 / 3;
+                grid-column: 4 / 11
+            }
+        }
+
+        &__hyperlink {
+            grid-row: 3 / 4;
+            grid-column: 4 / 7;
+        }
+
+		&__video {
+			display: block;
+			grid-row: 3 / 4;
+			grid-column: 8 / 13
+		}
+    }
+
 }

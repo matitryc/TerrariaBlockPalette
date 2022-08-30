@@ -8,6 +8,7 @@
 
 @media (min-width: 1200px) {
 	.section {
+		padding: 8em 2em;
 		&__heading {
             font-size: 6.35rem;
         }
@@ -34,9 +35,34 @@
 			margin-top: 2.4em;
 		}
 	}
+
+	.tutorials {
+		&__comment {
+			font-size: 3.45rem;
+
+			&:nth-child(1){
+                grid-row: 1 / 2;
+                grid-column: 2 / 6;
+            }
+
+            &:nth-child(2){
+                margin-top: 3em;
+                grid-row: 1 / 2;
+                grid-column: 8 / 12;
+            }
+
+            &:nth-child(3){
+                grid-row: 2 / 3;
+                grid-column: 4 / 10
+            }
+		}
+	}
 }
 
 @media (min-width: 1400px) {
+	.section {
+		padding: 10em 2em;
+	}
 	.header {
 		&__asset {
 			&--leaf-one {
@@ -54,6 +80,12 @@
 			&--star-two {
 				font-size: 26rem;
 			}
+		}
+	}
+
+	.tutorials {
+		&__comment {
+			font-size: 3.6rem;
 		}
 	}
 }

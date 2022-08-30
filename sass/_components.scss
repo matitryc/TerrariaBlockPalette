@@ -20,19 +20,36 @@ header .wrapper {
 }
 
 .section {
-	padding: 6em 2em;
+	padding: 4em 2em;
+
 
 	&__heading {
 		display: inline;
 		letter-spacing: 3px;
 		font-size: 4rem;
-		color: $darker;
 		text-transform: uppercase;
-		background-color: $secondaryMainColor;
-		// overflow: hidden;
 
 		span {
 			color: $darkMainColor;
+		}
+	}
+	
+	&:nth-child(odd){
+		.section__heading {
+			color: $darker;
+			background-color: $secondaryMainColor;
+	
+			span {
+				color: $darkMainColor;
+			}
+		}
+	}
+
+	&:nth-child(even){
+		background-color: $darkMainColor;
+		.section__heading {
+			color: $mainTextColor;
+			background-color: $lightDarkMain;
 		}
 	}
 }

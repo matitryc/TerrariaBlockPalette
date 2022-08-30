@@ -20,6 +20,9 @@ const main = document.querySelector('main')
 let mobileHeight = burgerBtnBg.offsetHeight
 let mainDistance = main.offsetTop - mobileHeight
 
+const sectionHeadings = document.querySelectorAll('.section__heading')
+const headingsContent = Object.values(sectionHeadings).map(headingContent => headingContent = headingContent.innerHTML)
+
 const handleNav = () => {
 	burgerBtn.forEach(burger => burger.classList.toggle('transformation'))
 	navMobile.classList.toggle('slide-in')
@@ -72,8 +75,8 @@ const handleNav = () => {
 			})
 		}
 	}
-
 	window.addEventListener('resize', handleResize)
+
 }
 const scrollPadding = () => {
 	let headerHeight = header.offsetHeight
@@ -115,7 +118,24 @@ const handleSlideElements = () => {
 	}
 }
 
+// const handleSectionHeadings = () => {
+// 	if (document.documentElement.clientWidth >= 350) {
+// 		sectionHeadings.forEach(heading => {
+			
+// 			return
+// 		})
+// 	} else {
+// 		for (let i = 0; i < sectionHeadings.length; i++){
+// 			sectionHeadings[i].innerHTML = headingsContent[i]
+// 		}
+// 		return
+// 	}
+// }
+// console.log(typeof sectionHeadings[0]);
+// window.addEventListener('resize', handleSectionHeadings)
+
 window.addEventListener('scroll', scrollPadding)
 window.addEventListener('scroll', handleSlideElements)
+
 navMobileLinks.forEach(link => link.addEventListener('click', handleNav))
 burgerBtn.forEach(burger => burger.addEventListener('click', handleNav))
