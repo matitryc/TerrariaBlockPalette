@@ -12,6 +12,10 @@ const burgerBtnBg = document.querySelector('.burger-btn-bg')
 const mainSlideElements = document.querySelectorAll('.welcome__text')
 const slideElementsHeight = Object.values(mainSlideElements).map(element => (element = element.offsetHeight))
 const slideElementsDistance = Object.values(mainSlideElements).map(element => (element = element.offsetTop))
+
+const tutorialsComments = document.querySelectorAll('.tutorials__comment')
+const commentsHeight = Object.values(tutorialsComments).map(comment => (comment = comment.offsetHeight))
+const commentsDistance = Object.values(tutorialsComments).map(comment => (comment = comment.offsetTop))
 const screenProportion = 4 / 5
 
 const html = document.querySelector('html')
@@ -20,8 +24,8 @@ const main = document.querySelector('main')
 let mobileHeight = burgerBtnBg.offsetHeight
 let mainDistance = main.offsetTop - mobileHeight
 
-const sectionHeadings = document.querySelectorAll('.section__heading')
-const headingsContent = Object.values(sectionHeadings).map(headingContent => headingContent = headingContent.innerHTML)
+// const sectionHeadings = document.querySelectorAll('.section__heading')
+// const headingsContent = Object.values(sectionHeadings).map(headingContent => headingContent = headingContent.innerHTML)
 
 const handleNav = () => {
 	burgerBtn.forEach(burger => burger.classList.toggle('transformation'))
@@ -108,12 +112,20 @@ const handleSlideElements = () => {
 	for (let i = 0; i < mainSlideElements.length; i++) {
 		if (document.documentElement.clientWidth < 768) {
 			if (window.scrollY + slideElementsHeight[i] + screenPoint >= slideElementsDistance[i]) {
-				mainSlideElements[i].classList.add('appear')
+				mainSlideElements[i].classList.add('show')
 			}
 		} else {
 			if (window.scrollY + slideElementsHeight[i] + (screenPoint * 3) >= slideElementsDistance[i]) {
-				mainSlideElements[i].classList.add('appear')
+				mainSlideElements[i].classList.add('show')
 			}
+		}
+	}
+	let transitionDelay = 0
+	for (let i = 0; i < tutorialsComments.length; i++){
+		if (window.scrollY + commentsHeight[i] + (screenPoint * 3) >= commentsDistance[i]) {
+			tutorialsComments[i].style.transitionDelay = transitionDelay + 's'
+			tutorialsComments[i].classList.add('show')
+			transitionDelay += .05
 		}
 	}
 }

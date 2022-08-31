@@ -81,6 +81,11 @@ body {
 		&:nth-child(even) {
 			background-color: rgba($secondaryMainColor, 0.6);
 		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 5px 0 0 $mintColor
+		}
 	}
 }
 
@@ -121,7 +126,9 @@ body {
 			color: $dark;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
+			outline: none;
 			color: $dark;
 			background-color: $mintColor;
 		}
@@ -256,16 +263,17 @@ body {
 .welcome {
 
 	&__text {
+		transform: translateY(30%);
 		margin-top: 1em;
 		padding: 0.5em 0.5em;
-		color: $mainTextColor;
 		background-color: $darker;
 		border-radius: 10px;
 		box-shadow: 5px 5px 5px rgba($darker, 0.5);
 		font-size: 2.5rem;
 		font-family: 'Work Sans', sans-serif;
+		color: $mainTextColor;
 		opacity: 0;
-		transition: opacity .7s;
+		transition: opacity .7s, transform .4s;
 
 		&--highlight {
 			color: $assetColor;
@@ -289,13 +297,18 @@ body {
 }
 
 .tutorials {
-	background-image: linear-gradient(30deg, rgba($mainColor, .9), rgba($darkish, .9)), url('../img/terraria__tutorials-bg.webp');
+	background-image: linear-gradient(30deg, rgba($mainColor, .9), rgba($secondaryMainColor, .9), $mainColor);
 	background-size: cover;
 	background-position: 30% 20%;
 	z-index: -2;
 
+	.section__heading {
+		background-color: $mintColor !important;
+	}
+
 	&__comment {
 		position: relative;
+		transform: translateY(30%);
 		padding: .5em;
 		max-width: 400px;
 		margin-top: 1.5em;
@@ -305,6 +318,8 @@ body {
 		color: $mintColor;
 		background-image: linear-gradient(60deg, $darker, $dark);
 		overflow: hidden;
+		opacity: 0;
+		transition: transform .4s, opacity .6s;
 		z-index: 1;
 
 		&:first-child {
