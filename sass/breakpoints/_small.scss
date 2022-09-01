@@ -97,4 +97,19 @@
         }
     }
 
+    .about-us {
+        .star-bg-asset {
+            font-size: 24rem;
+        }
+        &__chat {
+            &-title {
+                font-size: 3.3rem;
+            }
+
+            &-text {
+                font-size: 2.5rem;
+            }
+        }
+    }
+
 }

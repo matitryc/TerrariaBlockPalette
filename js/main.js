@@ -18,6 +18,12 @@ const commentsHeight = Object.values(tutorialsComments).map(comment => (comment 
 const commentsDistance = Object.values(tutorialsComments).map(comment => (comment = comment.offsetTop))
 const screenProportion = 4 / 5
 
+const chatBoxes = document.querySelectorAll('.about-us__chat')
+const chatDotsBox = document.querySelectorAll('.about-us__dots')
+const chatDots = document.querySelectorAll('.about-us__dot')
+const chatDotsPosition = 80
+const aboutUs = document.querySelector('.about-us')
+
 const html = document.querySelector('html')
 const main = document.querySelector('main')
 
@@ -80,8 +86,8 @@ const handleNav = () => {
 		}
 	}
 	window.addEventListener('resize', handleResize)
-
 }
+
 const scrollPadding = () => {
 	let headerHeight = header.offsetHeight
 	let desktopHeight = navDesktop.offsetHeight
@@ -111,41 +117,82 @@ const handleSlideElements = () => {
 	let screenPoint = window.screen.height / 10
 	for (let i = 0; i < mainSlideElements.length; i++) {
 		if (document.documentElement.clientWidth < 768) {
-			if (window.scrollY + slideElementsHeight[i] + screenPoint >= slideElementsDistance[i]) {
+			if (window.scrollY + slideElementsHeight[i] + screenPoint * 2 >= slideElementsDistance[i]) {
 				mainSlideElements[i].classList.add('show')
 			}
 		} else {
-			if (window.scrollY + slideElementsHeight[i] + (screenPoint * 3) >= slideElementsDistance[i]) {
+			if (window.scrollY + slideElementsHeight[i] + screenPoint * 5 >= slideElementsDistance[i]) {
 				mainSlideElements[i].classList.add('show')
 			}
 		}
 	}
-	let transitionDelay = 0
-	for (let i = 0; i < tutorialsComments.length; i++){
-		if (window.scrollY + commentsHeight[i] + (screenPoint * 3) >= commentsDistance[i]) {
-			tutorialsComments[i].style.transitionDelay = transitionDelay + 's'
-			tutorialsComments[i].classList.add('show')
-			transitionDelay += .05
-		}
+	if (mainSlideElements[mainSlideElements.length - 1].classList.contains('show')) {
+		window.removeEventListener('scroll', handleSlideElements)
 	}
 }
 
-// const handleSectionHeadings = () => {
-// 	if (document.documentElement.clientWidth >= 350) {
-// 		sectionHeadings.forEach(heading => {
-			
-// 			return
-// 		})
-// 	} else {
-// 		for (let i = 0; i < sectionHeadings.length; i++){
-// 			sectionHeadings[i].innerHTML = headingsContent[i]
-// 		}
-// 		return
-// 	}
-// }
-// console.log(typeof sectionHeadings[0]);
-// window.addEventListener('resize', handleSectionHeadings)
+const handleTutorialComments = () => {
+	let screenPoint = window.screen.height / 7
+	let transitionDelay = 0
+	for (let i = 0; i < tutorialsComments.length; i++) {
+		if (window.scrollY + commentsHeight[i] + screenPoint * 3 >= commentsDistance[i]) {
+			tutorialsComments[i].style.transitionDelay = transitionDelay + 's'
+			tutorialsComments[i].classList.add('show')
+			transitionDelay += 0.05
+		}
+	}
+	if (tutorialsComments[tutorialsComments.length - 1].classList.contains('show')) {
+		window.removeEventListener('scroll', handleTutorialComments)
+	}
+}
 
+const addingTopValues = () => {
+	for (let i = 0; i < chatBoxes.length; i++) {
+		const chatDistance = chatBoxes[i].offsetTop
+		const chatHeight = chatBoxes[i].offsetHeight
+		chatDotsBox[i].style.top = chatDistance + chatHeight - chatDotsPosition + 'px'
+	}
+}
+
+const handleAboutUs = () => {
+	for (let i = 0; i < chatBoxes.length; i++) {
+		const chatDistance = chatBoxes[i].offsetTop
+		const chatHeight = chatBoxes[i].offsetHeight
+		const aboutUsDistance = aboutUs.offsetTop
+		const chatBoxDistance = aboutUsDistance + chatDistance
+
+		if (document.documentElement.clientWidth < 768) {
+			if (window.scrollY + chatHeight / 2 >= chatBoxDistance) {
+				chatDotsBox[i].classList.add('vanish')
+				chatBoxes[i].classList.add('showX')
+			}
+		} else {
+			if (window.scrollY + chatHeight / 2 + 150 >= chatBoxDistance) {
+				chatDotsBox[i].classList.add('vanish')
+				chatBoxes[i].classList.add('showX')
+			}
+		}
+	}
+
+	if (chatBoxes[chatBoxes.length - 1].classList.contains('show')) {
+		window.removeEventListener('scroll', handleAboutUs)
+	}
+}
+
+
+for (let i = 0; i < chatDots.length; i++) {
+	chatDots[i].addEventListener('animationend', () => {
+		chatDots[i].style.animationDelay = 0.5 + 's'
+		chatDots[i].classList.remove('glideReverse')
+		void chatDots[i].offsetWidth
+		chatDots[i].classList.add('glideReverse')
+	})
+	if (chatDotsBox[0].style.opacity === 0) break
+}
+
+window.addEventListener('scroll', handleAboutUs)
+window.addEventListener('scroll', addingTopValues)
+window.addEventListener('scroll', handleTutorialComments)
 window.addEventListener('scroll', scrollPadding)
 window.addEventListener('scroll', handleSlideElements)
 
