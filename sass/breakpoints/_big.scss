@@ -59,6 +59,19 @@
             }
 		}
 	}
+
+	.about-us {
+		&__dot {
+			width: 16px;
+			height: 16px;
+		}
+
+		&__dots {
+			width: 130px;
+			height: 65px;
+			border-radius: 33px
+		}
+	}
 }
 
 @media (min-width: 1400px) {

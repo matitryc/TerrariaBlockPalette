@@ -73,6 +73,17 @@
 				margin-left: auto;
 			}
 		}
+
+		&__dot {
+			width: 14px;
+			height: 14px;
+		}
+
+		&__dots {
+			width: 100px;
+			height: 50px;
+			border-radius: 25px
+		}
 	}
 }
 
@@ -181,5 +192,17 @@
 			}
 
 		}
+
+		&__dot {
+			width: 14px;
+			height: 14px;
+		}
+
+		&__dots {
+			width: 120px;
+			height: 60px;
+			border-radius: 30px
+		}
 	}
+	
 }

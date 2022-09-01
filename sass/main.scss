@@ -405,12 +405,13 @@ body {
 	}
 
 	.star-box {
-		position: relative;
+		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
+		
 	}
 
 	&__dots {
@@ -479,7 +480,7 @@ body {
 			left: auto;
 			right: -80px;
 			opacity: 0.3;
-			z-index: 1;
+			z-index: 14;
 		}
 
 		&::before {
