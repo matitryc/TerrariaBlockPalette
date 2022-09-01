@@ -162,12 +162,12 @@ const handleAboutUs = () => {
 		const chatBoxDistance = aboutUsDistance + chatDistance
 
 		if (document.documentElement.clientWidth < 768) {
-			if (window.scrollY + chatHeight / 2 >= chatBoxDistance) {
+			if (window.scrollY + chatHeight / 2 + 100 >= chatBoxDistance || window.innerHeight + Math.ceil(window.scrollY) >= document.body.offsetHeight) {
 				chatDotsBox[i].classList.add('vanish')
 				chatBoxes[i].classList.add('showX')
 			}
 		} else {
-			if (window.scrollY + chatHeight / 2 + 150 >= chatBoxDistance) {
+			if (window.scrollY + chatHeight / 2 + 150 >= chatBoxDistance || window.innerHeight + Math.ceil(window.scrollY) + 100 >= document.body.offsetHeight) {
 				chatDotsBox[i].classList.add('vanish')
 				chatBoxes[i].classList.add('showX')
 			}
